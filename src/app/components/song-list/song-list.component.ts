@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Song} from '../../models/song.model';
 
 @Component({
   selector: 'app-song-list',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./song-list.component.scss']
 })
 export class SongListComponent implements OnInit {
+  @Input() songs: Song[];
 
   constructor() { }
 

@@ -1,5 +1,5 @@
 import {createReducer, on} from '@ngrx/store';
-import {dislikeSong, likeSong} from '../actions/song.action';
+import {dislikeSong, likeSong, retrieveSongs} from '../actions/song.action';
 
 const initialList: string[] = [];
 
@@ -13,6 +13,9 @@ export const songReducer = createReducer(
   }),
   on(dislikeSong, (state, {trackId}) => {
     return state.filter(id => trackId !== id);
+  }),
+  on(retrieveSongs, (state, {songs}) => {
+    return [...songs];
   })
 );
 
