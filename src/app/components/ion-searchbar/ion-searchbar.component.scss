@@ -1,0 +1,15 @@
+.search-bar {
+  margin-left: 10px;
+  background-color: #3c898f;
+  padding: 3px 10px;
+  width: fit-content;
+  input {
+    background-color: transparent;
+    border: none;
+    color: white;
+    &::placeholder {
+      color: white;
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<div fxLayout="column" class="song-card">
+  <div class="image-container" [ngStyle]="{'background-image': 'url('+song.artworkUrl100+')'}"></div>
+  <div class="body-card" fxLayout="column">
+    <span class="album-title">{{song.collectionName}}</span>
+    <span class="track-name">{{song.trackName}}</span>
+    <div fxLayoutAlign="end center">
+      <img src="assets/icons/heart-outline.svg" alt="">
+    </div>
+  </div>
+</div>

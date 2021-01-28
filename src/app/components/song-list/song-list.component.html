@@ -1,3 +1,7 @@
-<div *ngFor="let song of songs">
-  <span>{{song.trackId}}</span>
+<div class="container">
+  <div class="inner-container" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+    <div *ngFor="let song of songs" class="song-card">
+      <app-song-card [song]="song"></app-song-card>
+    </div>
+  </div>
 </div>
