@@ -1,4 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {select, Store} from '@ngrx/store';
+import {selectSongs} from '../../store/selectors/songs.selector';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +10,15 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Output() searchAction = new EventEmitter<string>();
 
-  constructor() { }
+  songs$ = this.store.pipe(select(selectSongs));
+
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
+
   }
 
   onSearchAction(value: string): void {
-    console.info('header', value);
     this.searchAction.emit(value);
   }
 

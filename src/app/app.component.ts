@@ -13,7 +13,7 @@ import {Song} from './models/song.model';
 })
 export class AppComponent implements OnInit {
   private sub: Subscription;
-  songs$ = this.store.pipe(select(selectSongs));
+  songs: Song[] = [];
 
   constructor(
     private store: Store,
@@ -28,8 +28,8 @@ export class AppComponent implements OnInit {
   private getSongs(artist?: string): void {
     this.sub = this.apiService.getSongs(artist).subscribe(
       response => {
-        const songs = response.results.map(song => new Song(song));
-        this.store.dispatch(retrieveSongs({songs}));
+        this.songs = response.results.map(song => new Song(song));
+        // this.store.dispatch(retrieveSongs({songs}));
       }
     );
   }

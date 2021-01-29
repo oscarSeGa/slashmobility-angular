@@ -1,0 +1,18 @@
+div {
+  position: relative;
+  .badge {
+    position: absolute;
+    background-color: darkgrey;
+    border-radius: 20px;
+    padding: 2px;
+    width: 15px;
+    height: 15px;
+    top: -5px;
+    right: -5px;
+  }
+  span {
+    font-size: 9px;
+    font-weight: 700;
+    color: white;
+  }
+}

@@ -12,6 +12,7 @@ import {IonSearchbarComponent} from './components/ion-searchbar/ion-searchbar.co
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SongCardComponent } from './components/song-card/song-card.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { FavouritesComponent } from './components/favourites/favourites.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     HeaderComponent,
     SongListComponent,
     IonSearchbarComponent,
-    SongCardComponent
+    SongCardComponent,
+    FavouritesComponent
   ],
     imports: [
         BrowserModule,

@@ -22,9 +22,13 @@
       font-size: 12px;
       font-weight: 400;
     }
-    img {
+    img, svg {
       width: 16px;
       height: 16px;
+      -webkit-tap-highlight-color: transparent;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

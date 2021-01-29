@@ -1,2 +1,2 @@
 <app-header (searchAction)="onSearchAction($event)"></app-header>
-<app-song-list [songs]="songs$ | async"></app-song-list>
+<app-song-list *ngIf="songs" [songs]="songs"></app-song-list>
