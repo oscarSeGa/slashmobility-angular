@@ -1,7 +1,8 @@
 import {createReducer, on} from '@ngrx/store';
-import {dislikeSong, likeSong, retrieveSongs} from '../actions/song.action';
+import {dislikeSong, likeSong, retrieveSongs, search} from '../actions/song.action';
 
 const initialList: string[] = [];
+const initialSearch = '';
 
 export const songReducer = createReducer(
   initialList,
@@ -16,6 +17,14 @@ export const songReducer = createReducer(
   }),
   on(retrieveSongs, (state, {songs}) => {
     return [...songs];
+  })
+);
+
+export const searchReducer = createReducer(
+  initialSearch,
+  on(search, (state, {input}) => {
+    console.info('reducer', input);
+    return input;
   })
 );
 

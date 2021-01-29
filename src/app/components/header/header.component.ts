@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-
   }
 
   onSearchAction(value: string): void {

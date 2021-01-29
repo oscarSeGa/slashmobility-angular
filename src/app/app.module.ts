@@ -6,13 +6,15 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './components/header/header.component';
 import {SongListComponent} from './components/song-list/song-list.component';
 import {StoreModule} from '@ngrx/store';
-import {songReducer} from './store/reducers/song.reducer';
+import {searchReducer, songReducer} from './store/reducers/song.reducer';
 import {HttpClientModule} from '@angular/common/http';
 import {IonSearchbarComponent} from './components/ion-searchbar/ion-searchbar.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { SongCardComponent } from './components/song-card/song-card.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {SongCardComponent} from './components/song-card/song-card.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { FavouritesComponent } from './components/favourites/favourites.component';
+import {FavouritesComponent} from './components/favourites/favourites.component';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,14 +25,18 @@ import { FavouritesComponent } from './components/favourites/favourites.componen
     SongCardComponent,
     FavouritesComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        StoreModule.forRoot({songs: songReducer}),
-        HttpClientModule,
-        FlexLayoutModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    StoreModule.forRoot({songs: songReducer, searchInput: searchReducer}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
+    HttpClientModule,
+    FlexLayoutModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

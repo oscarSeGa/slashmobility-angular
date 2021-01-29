@@ -1,5 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
+import {Store} from '@ngrx/store';
+import {search} from '../../store/actions/song.action';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -14,14 +16,17 @@ export class IonSearchbarComponent implements OnInit {
     searchInput: ['']
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private store: Store) { }
 
   ngOnInit(): void {
   }
 
   search(): void {
     if (this.searchForm.valid) {
-      this.searchAction.emit(this.searchForm.value.searchInput);
+      // this.searchAction.emit(this.searchForm.value.searchInput);
+      this.store.dispatch(search({
+        input: this.searchForm.value.searchInput
+      }));
     }
   }
 

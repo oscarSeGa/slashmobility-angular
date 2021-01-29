@@ -1,5 +1,6 @@
 import {Song} from '../models/song.model';
 
 export interface AppState {
-  songs: ReadonlyArray<Song>;
+  songs: ReadonlyArray<number>;
+  searchInput: string;
 }
