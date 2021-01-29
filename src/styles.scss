@@ -6,10 +6,6 @@ body {
   box-sizing: border-box;
 }
 
-* {
-  font-family: 'Roboto Condensed', sans-serif;
-}
-
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -74,5 +70,9 @@ body {
   }
 }
 
+.no-results {
+  margin: 15px 0;
+}
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Roboto Condensed', sans-serif; }

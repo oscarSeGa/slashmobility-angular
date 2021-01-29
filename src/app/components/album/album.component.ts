@@ -24,7 +24,6 @@ export class AlbumComponent implements OnInit {
   }
 
   likeAlbum(): void {
-    console.info('album', this.album);
     this.store.dispatch(likeAlbum({
       albumId: this.album.trackId
     }));

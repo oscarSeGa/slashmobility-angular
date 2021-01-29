@@ -3,5 +3,8 @@
     <div *ngFor="let album of albums">
       <app-album-card [album]="album"></app-album-card>
     </div>
+    <div *ngIf="albums?.length === 0" class="no-results">
+      <span>Sin resultados</span>
+    </div>
   </div>
 </div>

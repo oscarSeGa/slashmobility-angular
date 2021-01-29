@@ -3,5 +3,8 @@
     <div *ngFor="let song of songs">
       <app-song-card [song]="song"></app-song-card>
     </div>
+    <div *ngIf="songs?.length === 0" class="no-results">
+      Sin resultados
+    </div>
   </div>
 </div>
