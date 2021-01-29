@@ -10,3 +10,8 @@ export const selectSearch = createSelector(
   (state: AppState) => state.searchInput,
   (searchInput: string) => searchInput
 );
+
+export const selectAlbums = createSelector(
+  (state: AppState) => state.albums,
+  (albums: any[]) => albums
+)

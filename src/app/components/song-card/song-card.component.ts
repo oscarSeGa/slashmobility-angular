@@ -35,7 +35,6 @@ export class SongCardComponent implements OnInit {
     }));
   }
 
-
   songLiked(): boolean {
     return this.songs.includes(this.song.trackId);
   }

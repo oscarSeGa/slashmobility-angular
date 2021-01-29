@@ -1,9 +1,21 @@
-<div class="header-container" fxLayout="row" fxLayoutAlign="space-between center">
-  <img src="assets/icons/music-circle-outline.svg" alt="">
-  <div fxFlex>
+<div class="header-container" fxLayout="row" fxLayoutAlign="space-between center" ngClass.xs="responsive">
+  <img src="assets/icons/music-circle-outline.svg" alt="" fxHide fxShow.gt-xs>
+  <div class="routes" fxLayoutGap="15px" fxHide fxShow.gt-xs>
+    <a routerLink="songs" routerLinkActive="active">Songs</a>
+    <a routerLink="albums" routerLinkActive="active">Albums</a>
+  </div>
+  <div class="routes responsive" fxLayoutAlign="center center" fxHide fxShow.xs>
+    <img [matMenuTriggerFor]="menu" src="assets/icons/menu.svg" alt="">
+    <mat-menu #menu="matMenu" class="menu">
+      <a routerLink="songs" mat-menu-item>Songs</a>
+      <a routerLink="albums" mat-menu-item>Albums</a>
+    </mat-menu>
+  </div>
+  <div fxFlex fxLayoutAlign="start center" fxLayoutAlign.xs="center center">
     <ion-searchbar (searchAction)="onSearchAction($event)"></ion-searchbar>
   </div>
   <div>
-    <app-favourites [songs]="songs$ | async"></app-favourites>
+    <app-favourites *ngIf="route === '/songs'" [items]="songs | async"></app-favourites>
+    <app-favourites *ngIf="route === '/albums'" [items]="albums | async"></app-favourites>
   </div>
 </div>

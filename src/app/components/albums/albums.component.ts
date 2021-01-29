@@ -1,39 +1,39 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {Song} from '../../models/song.model';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
+import { Album } from 'src/app/models/album.model';
 import {ApiService} from '../../services/api.service';
 import {select, Store} from '@ngrx/store';
 import {selectSearch} from '../../store/selectors/songs.selector';
 
 @Component({
-  selector: 'app-song-list',
-  templateUrl: './song-list.component.html',
-  styleUrls: ['./song-list.component.scss']
+  selector: 'app-albums',
+  templateUrl: './albums.component.html',
+  styleUrls: ['./albums.component.scss']
 })
-export class SongListComponent implements OnInit, OnDestroy {
+export class AlbumsComponent implements OnInit, OnDestroy {
   sub: Subscription;
-  songs = [];
+  albums: Album[];
 
   constructor(private apiService: ApiService, private store: Store) { }
 
   ngOnInit(): void {
-    this.getSongs();
+    this.getAlbums();
     this.store.pipe(select(selectSearch)).subscribe(
       search => {
         if (search) {
           if (this.sub) {
             this.sub.unsubscribe();
           }
-          this.sub = this.getSongs(search);
+          this.sub = this.getAlbums(search);
         }
       }
     );
   }
 
-  private getSongs(artist?: string): any {
-    this.sub = this.apiService.getSongs(artist).subscribe(
+  getAlbums(term?: string): any {
+    this.apiService.getAlbums(term).subscribe(
       response => {
-        this.songs = response.results.map(song => new Song(song));
+        this.albums = response.results.map(album => new Album(album));
       }
     );
   }

@@ -1,7 +1,7 @@
 import {createReducer, on} from '@ngrx/store';
-import {dislikeSong, likeSong, retrieveSongs, search} from '../actions/song.action';
+import {dislikeAlbum, dislikeSong, likeAlbum, likeSong, retrieveAlbums, retrieveSongs, search} from '../actions/song.action';
 
-const initialList: string[] = [];
+const initialList: number[] = [];
 const initialSearch = '';
 
 export const songReducer = createReducer(
@@ -20,10 +20,25 @@ export const songReducer = createReducer(
   })
 );
 
+export const albumReducer = createReducer(
+  initialList,
+  on(likeAlbum, (state, {albumId}) => {
+    if (state.includes(albumId)) {
+      return state;
+    }
+    return [...state, albumId];
+  }),
+  on(dislikeAlbum, (state, {albumId}) => {
+    return state.filter(id => albumId !== id);
+  }),
+  on(retrieveAlbums, (state, {albums}) => {
+    return [...albums];
+  })
+);
+
 export const searchReducer = createReducer(
   initialSearch,
   on(search, (state, {input}) => {
-    console.info('reducer', input);
     return input;
   })
 );

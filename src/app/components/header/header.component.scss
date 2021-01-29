@@ -2,4 +2,38 @@
   background-color: #3b9ba4;
   padding: 5px 25px;
   height: 5vh;
+  &.responsive {
+    height: 7vh;
+    padding: 5px 20px 5px 10px;
+  }
+}
+.routes {
+  margin: 0 10px;
+  position: relative;
+  &.responsive {
+    .menu {
+      position: absolute;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    &.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+  &:active, &:focus, &:visited {
+    color: white;
+  }
+}
+
+
+::ng-deep .menu {
+  background: #3b9ba4;
+  margin-top: 10px;
 }

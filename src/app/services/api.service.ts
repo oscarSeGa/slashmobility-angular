@@ -19,4 +19,14 @@ export class ApiService {
       map((res: HttpResponse<any>) => res),
       catchError((error: any) => throwError(error)));
   }
+
+  public getAlbums(term?: string): Observable<any> {
+    let url = `https://itunes.apple.com/search?term=oscar&entity=podcast`;
+    if (term) {
+      url = `https://itunes.apple.com/search?term=${term}&entity=podcast`;
+    }
+    return this.http.get(url).pipe(
+      map((res: HttpResponse<any>) => res),
+      catchError((error: any) => throwError(error)));
+  }
 }
