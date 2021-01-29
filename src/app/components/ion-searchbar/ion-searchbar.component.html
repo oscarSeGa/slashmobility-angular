@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutGap="10px" class="search-bar">
-  <input type="text" placeholder="Search">
-  <img src="assets/icons/search.svg" alt="">
-</div>
+<form [formGroup]="searchForm" fxLayout="row" fxLayoutGap="10px" class="search-bar" (ngSubmit)="search()">
+  <input type="text" placeholder="Search" formControlName="searchInput">
+  <button type="submit" class="search-btn" alt="search" ></button>
+</form>

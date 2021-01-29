@@ -1,7 +1,7 @@
 <div class="header-container" fxLayout="row" fxLayoutAlign="space-between center">
   <img src="assets/icons/music-circle-outline.svg" alt="">
   <div fxFlex>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar (searchAction)="onSearchAction($event)"></ion-searchbar>
   </div>
   <div>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24"

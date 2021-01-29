@@ -12,7 +12,6 @@ export class SongCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.info('song', this.song);
   }
 
 }

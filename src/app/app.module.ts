@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {IonSearchbarComponent} from './components/ion-searchbar/ion-searchbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SongCardComponent } from './components/song-card/song-card.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,14 @@ import { SongCardComponent } from './components/song-card/song-card.component';
     IonSearchbarComponent,
     SongCardComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    StoreModule.forRoot({songs: songReducer}),
-    HttpClientModule,
-    FlexLayoutModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        StoreModule.forRoot({songs: songReducer}),
+        HttpClientModule,
+        FlexLayoutModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

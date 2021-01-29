@@ -22,11 +22,20 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sub = this.apiService.getSongs('oscar').subscribe(
+    this.getSongs();
+  }
+
+  private getSongs(artist?: string): void {
+    this.sub = this.apiService.getSongs(artist).subscribe(
       response => {
         const songs = response.results.map(song => new Song(song));
         this.store.dispatch(retrieveSongs({songs}));
       }
     );
+  }
+
+  onSearchAction(value: string): void {
+    console.info('value', value);
+    this.getSongs(value);
   }
 }

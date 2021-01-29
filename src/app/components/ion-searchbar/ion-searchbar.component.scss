@@ -7,9 +7,22 @@
     background-color: transparent;
     border: none;
     color: white;
+    outline:none;
     &::placeholder {
       color: white;
       opacity: 1;
+    }
+    &::-moz-focus-inner {
+      border: 0;
+    }
+  }
+  .search-btn {
+    width: 25px;
+    height: 25px;
+    background: url('../../../assets/icons/search.svg');
+    border: none;
+    &:hover {
+      cursor: pointer;
     }
   }
 }
